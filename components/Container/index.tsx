@@ -1,41 +1,28 @@
-import React from 'react';
-import ContainerProps from './container.type';
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-import clsx from 'clsx';
-import { Button } from '../Button';
+import React from "react";
+import ContainerProps from "./container.type";
+import { useSortable } from "@dnd-kit/sortable";
+import clsx from "clsx";
+import { Button } from "../Button";
+import { ScrollArea } from "@mantine/core";
 
 const Container = ({
-  id,
+  description,
   children,
   title,
-  description,
-  onAddItem,
+  id,
 }: ContainerProps) => {
-  const {
-    attributes,
-    setNodeRef,
-    listeners,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({
+  const { setNodeRef, isDragging } = useSortable({
     id: id,
     data: {
-      type: 'container',
+      type: "container",
     },
   });
   return (
     <div
-      {...attributes}
       ref={setNodeRef}
-      style={{
-        transition,
-        transform: CSS.Translate.toString(transform),
-      }}
       className={clsx(
-        'w-full h-full p-4 bg-gray-50 rounded-xl flex flex-col gap-y-4',
-        isDragging && 'opacity-50',
+        "w-full h-[25rem] p-4 bg-gray-50 rounded-xl flex flex-col gap-y-4",
+        isDragging && "opacity-50",
       )}
     >
       <div className="flex items-center justify-between">
@@ -43,18 +30,10 @@ const Container = ({
           <h1 className="text-gray-800 text-xl">{title}</h1>
           <p className="text-gray-400 text-sm">{description}</p>
         </div>
-        <button
-          className="border p-2 text-xs rounded-xl shadow-lg hover:shadow-xl"
-          {...listeners}
-        >
-          Drag Handle
-        </button>
       </div>
-
-      {children}
-      <Button variant="ghost" onClick={onAddItem}>
-        Add Item
-      </Button>
+      <ScrollArea h={250} scrollbarSize={2}>
+        {children}
+      </ScrollArea>
     </div>
   );
 };

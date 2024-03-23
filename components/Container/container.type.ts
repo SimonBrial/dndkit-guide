@@ -5,5 +5,4 @@ export default interface ContainerProps {
   children: React.ReactNode;
   title?: string;
   description?: string;
-  onAddItem?: () => void;
 }
