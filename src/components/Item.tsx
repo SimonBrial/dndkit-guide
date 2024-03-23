@@ -9,8 +9,8 @@ export const Item = ({
   description: string;
 }) => {
   return (
-    <div className="flex items-center gap-2 border-2 border-slate-200 shadow-sm p-2 rounded-md bg-neutral-200/80">
-      <span className="text-lg text-slate-500 rounded-md hover:bg-slate-100 transition-all py-3 px-[0.5px] hover:cursor-pointer">
+    <div className="flex items-center gap-2 border-2 border-slate-200 shadow-sm p-2 rounded-md bg-slate-100">
+      <span className="text-lg text-slate-500 rounded-md hover:bg-slate-200/80 transition-all py-3 px-[0.5px] hover:cursor-pointer">
         <RiDraggable />
       </span>
       <div className="flex flex-col gap-0 cursor-default">
