@@ -1,4 +1,4 @@
-import { DNDType } from "@/interface/interface";
+import { DNDType } from "@/src/interface/interface";
 
 export const dataFake: DNDType[] = [
   {

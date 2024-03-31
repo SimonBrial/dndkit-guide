@@ -1,3 +1,5 @@
+"use client";
+
 import { useId, useState } from "react";
 // DnD
 import {
@@ -20,12 +22,10 @@ import {
 } from "@dnd-kit/sortable";
 
 // Components
-import Container from "@/components/Container";
-import Items from "@/components/Item";
-import { DNDType } from "@/interface/interface";
-import { dataFake } from "@/data/dataFake";
-
-
+import { DNDType } from "@/src/interface/interface";
+import { dataFake } from "@/src/data/dataFake";
+import Container from "./Container";
+import Items from "./Item";
 
 export default function Home() {
   const DNDid = useId();
